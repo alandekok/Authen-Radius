@@ -1,0 +1,43 @@
+
+*** IMPORTANT on ***
+
+Before you can install RadiusPerl, you'll have to make sure the following
+modules are installed first :
+
+	* Digest::MD5 2.20 or higher 
+	* IO 1.12 or higher
+	* Data::HexDump 0.02 or higher
+
+All of these are available from CPAN.
+
+*** IMPORTANT off ***
+
+To install the Radius Client module for Perl 5, proceed as follows :
+
+1 Unpack the RadiusPerl source archive into a suitable directory with
+
+	gunzip -cf RadiusPerl-x.xx.tar.gz |tar xvf -
+
+2 Go into the newly created directory with
+
+	cd RadiusPerl-x.xx
+
+3 Build the module as usual :
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+Note that for 'make test' to work, you should have a Radius server running
+with the IP address & secret of the target machine in its clients file. You
+should also know a username & password in order to test if authentication
+works OK. Doing a 'make test' will first ask you for each of these.
+Also, if you plan to do something more complicated than just verify username &
+password - you should have the RADIUS dictionary file available on the
+host where you will run you radius client utility, and use load_dictionary
+before you will try to send any requests.
+
+See the file 'README' for general notes on RadiusPerl.
+
+Carl Declerck, Andrew Zhilenko

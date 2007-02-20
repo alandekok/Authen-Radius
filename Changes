@@ -1,0 +1,78 @@
+Revision history for Perl extension Radius.
+
+0.13 Mon Feb 19 22:09:00 2006
+	- Packet-of-disconnect support (thanks to Kostas Kalevras for
+		the patch)
+	- Print hexdump of packets to STDERR (thanks to Kevin Steves)
+
+0.12 Fri Dec 17 19:00:00 2004
+    - Include the default set of radius dictionaries with the module,
+		so it can be used on the generic system without having to install
+		extra components from the RADIUS server.
+
+0.11 Mon Mar 22 22:51:00 2004
+	- Fixed incorrect constant definition for ACCESS_REJECT 
+		(thanks to Alexey Antipov for the error report)
+
+0.10 Fri Mar 05 21:00:00 2004
+	- Authenticator for the accounting requests (Thanks to
+		Brian Andrus for the patch provided)
+	- Support for password, longer than 16 characters (Thanks to
+		Will LaSala and Robert Tuttle for the problem report
+		and patches)
+	- Include NAS-IP-Address into the check_pwd to avoid error
+		"non-RFC packet error" from some of the RADIUS servers (Thanks
+		to Jacinta Alice Richardson, Bill Schoolfield and Ed Kubaitis
+		for the problem	report and patches)
+	- Modify the example in perldoc to avoid confusion with the
+		User-Pasword vs Password attribute. (Thanks to Didier
+		Conchaudron	for the problem report)
+	- Limit the maximum value length for string and avpair attributes
+
+0.09 Thu Jun 19 22:00:00 2003
+	- Replaced obsolete MD5 module with the Digest::MD5 (Thanks
+		Jonathan Earle for his patch).
+	- More careful handling of the return values in check_pwd to
+		avoid "Use of uninitialized value" warnings. (Thanks to
+		Kelsey Cummings for the notice).
+
+0.08 Sun Mar 24 23:00:00 2003
+	- Extra debug message when adding a new attribute
+
+0.07 Thu Feb 06 14:00:00 2003
+	- Support for the include command in the dictionaries
+	- Support for Digest-Attributes
+	- Bugfix for the Password attribute (attribute with id=2 should
+		be encrypted only for the undefined [default] vendor)
+	- Asked CPAN maintainers to be granted ownership on this module,
+		since the original author seem to be unavailable for quite
+		long time.
+	- Debug possibility (hexdump of the outgoing and incoming packets)
+
+0.06  Tue May 28 13:05:00 2002 (this version was never released to CPAN)
+	- Vendor support in the dictionaries
+	- Cisco AV pair attribute support
+
+0.05  Thu May 01 12:08:12 1997
+	- Bugfix to pad passwords up to nearest multiple of 16 (thanks to
+	  "Mark R. Levinson" <mrl@isc.upenn.edu>)
+
+0.04  Mon Mar 31 20:04:33 1997
+	- changed module name to Authen::Radius
+	- added check_pwd() wrapper method (doesn't need a dictionary!) for 
+	  quick & easy username+password verification
+	- added actual timeout test on the IO recv() call
+	- remote socket port now defaults to 1645 if no port is specified and 
+	  there is no 'radius' entry in /etc/services
+	- added documentation on all interface methods (perldoc Authen::Radius)
+
+0.03  Tue Mar 25 19:51:23 1997
+	- added errors
+
+0.02  Mon Mar 24 11:51:23 1997
+	- replaced socket() & family with IO::Socket calls
+	- made new() method accept a single hash instead of multiple scalars
+
+0.01  Sun Mar 23 23:05:23 1997
+	- original version;
+
